@@ -1,0 +1,10 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: demo-api
+spec:
+  host: demo-api
+  trafficPolicy:
+    loadBalancer:
+      consistentHash:
+        httpHeaderName: "X-Grpc-Call-Id"
